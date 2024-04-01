@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .book-list-container {
+  display: grid;
+  grid-template-rows: auto 1fr;  /* Allocate space for search bar and grid */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.book-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-entry img {
+  width: 100px;
+  height: auto;
+}
+
+.book-details {
+  margin-top: 10px;
+}
+
+</style>
+<body>
+<div class="book-list-container">
+  <input type="text" id="search-bar" placeholder="Search books...">
+  <div class="grid-container">
+    <div class="grid-item header">Title</div>
+    <div class="grid-item header">Author</div>
+    <template id="book-template">
+      <div class="grid-item book-entry">
+        <img src="{{imageUrl}}" alt="{{title}}">
+        <div class="book-details">
+          <h3>{{title}}</h3>
+          <p>by {{author}}</p>
+          </div>
+      </div>
+    </template>
+  </div>
+</div>
+</body>
+</html>
